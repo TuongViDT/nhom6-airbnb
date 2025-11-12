@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<!--Validate cu phap cua file xml-->
+<suite name="Playwright Suite" parallel="classes" thread-count="2">
+    <!--    + parallel: classes - moi class test se chay tren 1 thread rieng. -->
+    <!--    VD co 2 class test rieng chay song song-->
+    <!--    + thread-count: so thread chay song song. Bao nhieu class tesst thi bay nhieu thread-count-->
+    <!--    Luu y: ten class test phair trung voi ten file class-->
+    <test name="All Tests">
+        <classes>
+<!--            <class name="tests.LoginTest"/>-->
+        </classes>
+    </test>
+    <!-- parallel modes: methods | classes | tests -->
+</suite>
