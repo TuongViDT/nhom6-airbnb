@@ -32,43 +32,40 @@ public class BookingTest extends BaseTest {
     @Test
     public void testBookingSuccess(){
 //        B1: truy cap trang web
-
+        ExtentTestNGListener.info("Truy cap thanh cong trang web");
         page.navigate(TestConfig.getBaseUrl());
         page.waitForLoadState();
-        ExtentTestNGListener.info("Truy cap thanh cong trang web");
-
 //        Dang nhap thanh cong
+        ExtentTestNGListener.info("Đăng nhập tài khoản");
         String email = TestConfig.getLoginValidEmail();
         String password = TestConfig.getLoginValidPassword();
         loginPage.openSignInForm();
         loginPage.login(email, password);
         page.waitForLoadState();
-        ExtentTestNGListener.info("Da dang nhap thanh cong");
 
 //        B2: chon dia diem
+        ExtentTestNGListener.info("Chọn địa điểm");
         homePage.clickLocation();
         page.waitForLoadState();
-        ExtentTestNGListener.info("Da chon dia diem");
 
 //        B3: chon phong
+        ExtentTestNGListener.info("Chọn phòng");
         roomDetailPage.chooseRoom();
         page.waitForLoadState();
-        ExtentTestNGListener.info("Da chon phong");
 
 //        B4: thay doi ngay
+        ExtentTestNGListener.info("Chon ngay check in check out");
         bookingPage.openPickDate();
         bookingPage.chooseDateBooking("December 29, 2025");
         bookingPage.chooseDateBooking("January 5, 2026");
-
-
         bookingPage.clickCloseButton();
-        ExtentTestNGListener.info("Da chon ngay check in check out");
+        ExtentTestNGListener.info("Chon so luong khach thue");
         bookingPage.setGuests(2);
-        ExtentTestNGListener.info("Da chon so luong khach thue");
+        ExtentTestNGListener.info("Thực hiện thao tác đặt phòng");
         bookingPage.clickBookingButton();
         bookingPage.clickConfirm();
+        ExtentTestNGListener.info("Xác minh đặt phòng thành công");
         boolean isSuccessBooking = bookingPage.isBookingSuccess();
-        ExtentTestNGListener.info("Dat phong thanh cong");
         Assert.assertTrue(isSuccessBooking, "Booking was not successful");
         page.waitForTimeout(3000);
     }
