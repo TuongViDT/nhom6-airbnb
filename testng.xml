@@ -7,7 +7,15 @@
     <!--    Luu y: ten class test phair trung voi ten file class-->
     <test name="All Tests">
         <classes>
-<!--            <class name="tests.LoginTest"/>-->
+            <class name="tests.BookingTest"/>
+            <class name="tests.HomeTest"/>
+            <class name="tests.LoginTest"/>
+            <class name="tests.LogoutTest"/>
+            <class name="tests.ProfileTest"/>
+            <class name="tests.RegisterTest"/>
+            <class name="tests.RoomsTest"/>
+            <class name="tests.RoomDetailTest"/>
+
         </classes>
     </test>
     <!-- parallel modes: methods | classes | tests -->

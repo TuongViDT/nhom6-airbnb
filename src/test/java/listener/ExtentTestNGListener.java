@@ -5,13 +5,16 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.testng.*;
+import pages.BasePage;
+import tests.BaseTest;
 
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class ExtentTestNGListener implements ITestListener, ISuiteListener {
     private static final ThreadLocal<ExtentTest> test = new ThreadLocal<>();
-    private ExtentReports extentReports;
+    private static ExtentReports extentReports;
 
     private static synchronized ExtentReports createReporter() {
         // Tạo thư mục "reports" nếu chưa tồn tại
@@ -43,6 +46,9 @@ public class ExtentTestNGListener implements ITestListener, ISuiteListener {
         // Trả về ExtentReports instance đã cấu hình
         return extent;
     }
+    public static ExtentTest getTest() {
+        return test.get();
+    }
 
     @Override
     public void onStart(ISuite suite) {
@@ -67,22 +73,26 @@ public class ExtentTestNGListener implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-//        getTest().pass("Test passed");
+        getTest().pass("Test passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-//        ExtentTest test = getTest();
-//        if (result.getThrowable() != null) {
-//            test.fail(result.getThrowable());
-//        } else {
-//            test.fail("Test failed");
-//        }
+        ExtentTest test = getTest();
+        getTest().fail(result.getThrowable());
+
+//        capture screenshot automatically
+        Object instance = result.getInstance();
+        if(instance instanceof BaseTest bt){
+            String fileName = "fail_" + result.getMethod().getMethodName();
+            String path = bt.getScreenshotHelper().takeScreenshot(fileName);
+            getTest().addScreenCaptureFromPath("../" + path, "Failure Screenshot");
+        }
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-//        getTest().skip("Test skipped");
+        getTest().skip("Test skipped");
     }
 
     @Override
@@ -92,8 +102,24 @@ public class ExtentTestNGListener implements ITestListener, ISuiteListener {
 
     @Override
     public void onStart(ITestContext context) {
+
         // no-op
     }
+
+    public static void logStep(String message) {
+        ExtentTest extentTest = test.get();
+        if (extentTest != null) {
+            extentTest.info(message);
+        }
+    }
+
+    public static void info(String message){
+        ExtentTest test = getTest();
+        if(test != null) {
+            test.info(message);
+        }
+    }
+
 
     @Override
     public void onFinish(ITestContext context) {
