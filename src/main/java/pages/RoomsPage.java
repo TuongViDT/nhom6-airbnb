@@ -18,6 +18,7 @@ public class RoomsPage extends BasePage{
     public boolean isRoomInfoDisplayed(){
         page.waitForSelector(ROOM_CARD);
         Locator card = page.locator(ROOM_CARD);
+        page.waitForTimeout(2000);
         int count = card.count();
         for(int i = 0; i < count; i++){
             Locator nameRoom = card.nth(i).locator(ROOM_NAME);
