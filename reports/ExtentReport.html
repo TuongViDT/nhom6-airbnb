@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Playwright Test Execution</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Dec 16, 2025 01:40:32 PM</span></a>
+<a href="#"><span class="badge badge-primary">Dec 18, 2025 09:50:47 PM</span></a>
 </li>
 </ul>
 </div>
@@ -45,11 +45,6 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
-</a>
-</li>
-<li class="nav-item dropdown" onclick="toggleView('exception-view')">
-<a id="nav-exception" class="dropdown-toggle" href="#">
-<span class="ico"><i class="fa fa-bug"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
@@ -72,7 +67,6 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
-<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -80,243 +74,14 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="fail" test-id="1"
-          author=""
-          tag=""
-          device="">
-          <div class="test-detail">
-            <p class="name">tests.BookingTest::testBookingInvalidDate</p>
-            <p class="text-sm">
-              <span>1:40:38 PM</span> / <span>00:00:11:015</span>
-              <span class="badge fail-bg log float-right">Fail</span>
-            </p>
-          </div>
-          <div class="test-contents d-none">
-<div class="detail-head">
-<div class="p-v-10">
-<div class="info">
-<h5 class="test-status text-fail">tests.BookingTest::testBookingInvalidDate</h5>
-<span class='badge badge-success'>12.16.2025 1:40:38 PM</span>
-<span class='badge badge-danger'>12.16.2025 1:40:49 PM</span>
-<span class='badge badge-default'>00:00:11:015</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
-<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
-<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
-<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
-</div>
-</div>
-</div>    <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='../screenshots/fail_testBookingInvalidDate-20251216_134048.png' src="../screenshots/fail_testBookingInvalidDate-20251216_134048.png">
-    <div class="title">Failure Screenshot</div>
-    </div></div>
-<div class="detail-body mt-4">
-<table class="table table-sm">
-  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
-  <tbody>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:38 PM</td>
-        <td>
-          Test started
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:38 PM</td>
-        <td>
-          Truy cập trang web: https://demo4.cybersoft.edu.vn
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:38 PM</td>
-        <td>
-          Đăng nhập hệ thống với tài khoản hợp lệ
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:41 PM</td>
-        <td>
-          Chọn địa điểm để tìm kiếm phòng
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:43 PM</td>
-        <td>
-          Chọn một phòng trong danh sách kết quả
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:44 PM</td>
-        <td>
-          Chọn ngày check-in và check-out trùng nhau
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:46 PM</td>
-        <td>
-          Thực hiện thao tác đặt phòng
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:47 PM</td>
-        <td>
-          Xác minh hệ thống không cho phép đặt phòng với ngày không hợp lệ
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>1:40:48 PM</td>
-        <td>
-          <textarea readonly class="code-block">java.lang.AssertionError: Hệ thống vẫn cho đặt phòng dù ngày không hợp lệ! expected [false] but found [true]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertFalse(Assert.java:79)
-	at tests.BookingTest.testBookingInvalidDate(BookingTest.java:149)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.privateRun(TestRunner.java:848)
-	at org.testng.TestRunner.run(TestRunner.java:621)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-	at org.testng.TestNG.runSuites(TestNG.java:1114)
-	at org.testng.TestNG.run(TestNG.java:1082)
-	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
-	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
-</textarea>
-          
-        </td>
-      </tr>
-  </tbody>
-</table>
-</div>
-          </div>
-        </li>
-        <li class="test-item"  status="pass" test-id="2"
-          author=""
-          tag=""
-          device="">
-          <div class="test-detail">
-            <p class="name">tests.BookingTest::testBookingNotLogin</p>
-            <p class="text-sm">
-              <span>1:40:49 PM</span> / <span>00:00:08:734</span>
-              <span class="badge pass-bg log float-right">Pass</span>
-            </p>
-          </div>
-          <div class="test-contents d-none">
-<div class="detail-head">
-<div class="p-v-10">
-<div class="info">
-<h5 class="test-status text-pass">tests.BookingTest::testBookingNotLogin</h5>
-<span class='badge badge-success'>12.16.2025 1:40:49 PM</span>
-<span class='badge badge-danger'>12.16.2025 1:40:58 PM</span>
-<span class='badge badge-default'>00:00:08:734</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
-<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
-<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
-<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
-</div>
-</div>
-</div><div class="detail-body mt-4">
-<table class="table table-sm">
-  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
-  <tbody>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:49 PM</td>
-        <td>
-          Test started
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:49 PM</td>
-        <td>
-          Truy cập trang web: https://demo4.cybersoft.edu.vn
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:50 PM</td>
-        <td>
-          Chọn địa điểm để tìm kiếm phòng
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:51 PM</td>
-        <td>
-          Chọn một phòng từ danh sách kết quả
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:52 PM</td>
-        <td>
-          Chọn ngày check-in và ngày check-out hợp lệ
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:54 PM</td>
-        <td>
-          Thiết lập số lượng khách thuê phòng
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:55 PM</td>
-        <td>
-          Thực hiện thao tác đặt phòng
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:55 PM</td>
-        <td>
-          Xác minh hệ thống không cho phép đặt phòng khi chưa đăng nhập
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>1:40:58 PM</td>
-        <td>
-          Test passed
-        </td>
-      </tr>
-  </tbody>
-</table>
-</div>
-          </div>
-        </li>
-        <li class="test-item"  status="pass" test-id="3"
+        <li class="test-item"  status="pass" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">tests.BookingTest::testBookingSuccess</p>
             <p class="text-sm">
-              <span>1:40:59 PM</span> / <span>00:00:12:479</span>
+              <span>9:50:53 PM</span> / <span>00:00:14:888</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -325,10 +90,10 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">tests.BookingTest::testBookingSuccess</h5>
-<span class='badge badge-success'>12.16.2025 1:40:59 PM</span>
-<span class='badge badge-danger'>12.16.2025 1:41:11 PM</span>
-<span class='badge badge-default'>00:00:12:479</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span class='badge badge-success'>12.18.2025 9:50:53 PM</span>
+<span class='badge badge-danger'>12.18.2025 9:51:08 PM</span>
+<span class='badge badge-default'>00:00:14:888</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
@@ -340,236 +105,70 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:40:59 PM</td>
+        <td>9:50:53 PM</td>
         <td>
           Test started
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:00 PM</td>
+        <td>9:50:53 PM</td>
         <td>
           Truy cap thanh cong trang web
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:02 PM</td>
+        <td>9:50:54 PM</td>
         <td>
-          Da dang nhap thanh cong
+          Đăng nhập tài khoản
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:04 PM</td>
+        <td>9:50:57 PM</td>
         <td>
-          Da chon dia diem
+          Chọn địa điểm
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:05 PM</td>
+        <td>9:50:59 PM</td>
         <td>
-          Da chon phong
+          Chọn phòng
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:07 PM</td>
+        <td>9:51:01 PM</td>
         <td>
-          Da chon ngay check in check out
+          Chon ngay check in check out
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:08 PM</td>
+        <td>9:51:03 PM</td>
         <td>
-          Da chon so luong khach thue
+          Chon so luong khach thue
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:08 PM</td>
+        <td>9:51:04 PM</td>
         <td>
-          Dat phong thanh cong
+          Thực hiện thao tác đặt phòng
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>9:51:04 PM</td>
+        <td>
+          Xác minh đặt phòng thành công
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>1:41:11 PM</td>
-        <td>
-          Test passed
-        </td>
-      </tr>
-  </tbody>
-</table>
-</div>
-          </div>
-        </li>
-        <li class="test-item"  status="pass" test-id="4"
-          author=""
-          tag=""
-          device="">
-          <div class="test-detail">
-            <p class="name">tests.BookingTest::testComparePriceBetweenCardAndDetailPage</p>
-            <p class="text-sm">
-              <span>1:41:13 PM</span> / <span>00:00:05:516</span>
-              <span class="badge pass-bg log float-right">Pass</span>
-            </p>
-          </div>
-          <div class="test-contents d-none">
-<div class="detail-head">
-<div class="p-v-10">
-<div class="info">
-<h5 class="test-status text-pass">tests.BookingTest::testComparePriceBetweenCardAndDetailPage</h5>
-<span class='badge badge-success'>12.16.2025 1:41:13 PM</span>
-<span class='badge badge-danger'>12.16.2025 1:41:18 PM</span>
-<span class='badge badge-default'>00:00:05:516</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
-<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
-<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
-<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
-</div>
-</div>
-</div><div class="detail-body mt-4">
-<table class="table table-sm">
-  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
-  <tbody>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:13 PM</td>
-        <td>
-          Test started
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:13 PM</td>
-        <td>
-          Truy cập trang web: https://demo4.cybersoft.edu.vn
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:13 PM</td>
-        <td>
-          Chọn địa điểm để tìm kiếm phòng
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:14 PM</td>
-        <td>
-          Lấy giá phòng hiển thị trên thẻ phòng muốn chọn
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:15 PM</td>
-        <td>
-          Chọn phòng để xem chi tiết
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:18 PM</td>
-        <td>
-          Lấy giá phòng hiển thị trên trang chi tiết
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:18 PM</td>
-        <td>
-          Xác minh giá phòng trên thẻ và trang chi tiết là giống nhau
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>1:41:18 PM</td>
-        <td>
-          Test passed
-        </td>
-      </tr>
-  </tbody>
-</table>
-</div>
-          </div>
-        </li>
-        <li class="test-item"  status="pass" test-id="5"
-          author=""
-          tag=""
-          device="">
-          <div class="test-detail">
-            <p class="name">tests.BookingTest::testTotalPriceCalculatedCorrectly</p>
-            <p class="text-sm">
-              <span>1:41:19 PM</span> / <span>00:00:07:631</span>
-              <span class="badge pass-bg log float-right">Pass</span>
-            </p>
-          </div>
-          <div class="test-contents d-none">
-<div class="detail-head">
-<div class="p-v-10">
-<div class="info">
-<h5 class="test-status text-pass">tests.BookingTest::testTotalPriceCalculatedCorrectly</h5>
-<span class='badge badge-success'>12.16.2025 1:41:19 PM</span>
-<span class='badge badge-danger'>12.16.2025 1:41:27 PM</span>
-<span class='badge badge-default'>00:00:07:631</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
-<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
-<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
-<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
-</div>
-</div>
-</div><div class="detail-body mt-4">
-<table class="table table-sm">
-  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
-  <tbody>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:19 PM</td>
-        <td>
-          Test started
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:19 PM</td>
-        <td>
-          Truy cập trang web: https://demo4.cybersoft.edu.vn
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:20 PM</td>
-        <td>
-          Chọn địa điểm để tìm kiếm phòng
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:21 PM</td>
-        <td>
-          Chọn phòng để xem chi tiết
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:21 PM</td>
-        <td>
-          Chọn ngày check-in check-out
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:41:23 PM</td>
-        <td>
-          Xác minh giá phòng được hiển thị và tính toán đúng
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>1:41:27 PM</td>
+        <td>9:51:08 PM</td>
         <td>
           Test passed
         </td>
@@ -588,79 +187,30 @@
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="test-wrapper row view exception-view attributes-view">
-<div class="test-list">
-<div class="test-list-tools">
-<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
-</div>
-<div class="test-list-wrapper scrollable">
-<ul class="test-list-item">
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>1</span>
-</span>
-<p class="name">java.lang.AssertionError</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>java.lang.AssertionError</h4>
-<span status="fail" class='badge log badge-danger'>1 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>13:40:38 PM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='1'>tests.BookingTest::testBookingInvalidDate</a>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="test-content scrollable">
-<div class="test-content-detail">
-<div class="detail-body"></div>
-</div>
-</div>
-</div><div class="container-fluid p-4 view dashboard-view">
+<div class="container-fluid p-4 view dashboard-view">
 <div class="row">
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Dec 16, 2025 01:40:32 PM</h3>
+<h3>Dec 18, 2025 09:50:47 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Dec 16, 2025 01:41:28 PM</h3>
+<h3>Dec 18, 2025 09:51:10 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>4</h3>
+<h3>1</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 </div>
@@ -676,12 +226,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='80%'>
-<b>4</b> tests passed
+<div><small data-tooltip='100%'>
+<b>1</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='20%'><b>1</b> tests failed,
+<small data-tooltip='0%'><b>0</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -699,10 +249,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='9%'><b>4</b> events passed</small></div>
+<div><small data-tooltip='10%'><b>1</b> events passed</small></div>
 <div>
-<small data-tooltip='2%'><b>1</b> events failed,
-<b data-tooltip='%'>37</b> others
+<small data-tooltip='0%'><b>0</b> events failed,
+<b data-tooltip='%'>9</b> others
 </small>
 </div>
 </div>
@@ -718,7 +268,7 @@
 </div></div>
 <script>
 var timeline = {
-"tests.BookingTest::testBookingInvalidDate":11.015,"tests.BookingTest::testBookingNotLogin":8.734,"tests.BookingTest::testBookingSuccess":12.479,"tests.BookingTest::testComparePriceBetweenCardAndDetailPage":5.516,"tests.BookingTest::testTotalPriceCalculatedCorrectly":7.631
+"tests.BookingTest::testBookingSuccess":14.888
 };
 </script>
 <div class="row">
@@ -745,8 +295,8 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 4,
-failParent: 1,
+passParent: 1,
+failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -762,11 +312,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 4,
-failEvents: 1,
+passEvents: 1,
+failEvents: 0,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 37
+infoEvents: 9
 };
 </script>        </div>
       </div>

@@ -30,13 +30,9 @@ public class LoginPage extends BasePage{
      */
 
     public void openSignInForm(){
-//        String baseUrl = TestConfig.getBaseUrl();
-//        page.navigate(baseUrl);
-//        page.waitForLoadState();
-//        page.navigate(baseUrl);
         header.openGuestMenu();
         header.clickOptionGuestMenu("Đăng nhập");
-        page.waitForSelector(LOGIN_FORM);
+        page.waitForSelector(EMAIL_INPUT);
     }
 
     public void enterEmail(String email){

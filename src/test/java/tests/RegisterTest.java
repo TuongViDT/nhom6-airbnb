@@ -14,11 +14,11 @@ import java.util.Map;
 @Listeners(ExtentTestNGListener.class)
 public class RegisterTest extends BaseTest {
 
-    private RegisterPage registerForm;
+    private RegisterPage registerPage;
 
     @BeforeMethod
     public void init(){
-        registerForm = new RegisterPage(page);
+        registerPage = new RegisterPage(page);
     }
 
 
@@ -33,7 +33,7 @@ public class RegisterTest extends BaseTest {
         page.navigate(TestConfig.getBaseUrl());
         page.waitForLoadState();
         ExtentTestNGListener.info("Mở form đăng ký");
-        registerForm.openRegisterForm();
+        registerPage.openRegisterForm();
         ExtentTestNGListener.info("Thực hiện đăng ký với email đã tồn tại");
 //        B4: Nhap du lieu vao cac field
         String name = TestConfig.getRegisterValidName();
@@ -41,11 +41,11 @@ public class RegisterTest extends BaseTest {
         String password = TestConfig.getRegisterValidPassword();
         String phone = TestConfig.getRegisterPhone();
         String birthday = TestConfig.getRegisterBirthday();
-        registerForm.register(name, email, password, phone, birthday);
+        registerPage.register(name, email, password, phone, birthday);
 //        B6: Kiem tra thong bao
         page.waitForLoadState();
         ExtentTestNGListener.info("Xác minh hệ thống không cho phép đăng ký với thông tin không hợp lệ");
-        boolean hasErrorMessage = registerForm.hasErrorMessage();
+        boolean hasErrorMessage = registerPage.hasErrorMessage();
         Assert.assertTrue(hasErrorMessage);
     }
 
@@ -57,7 +57,7 @@ public class RegisterTest extends BaseTest {
         page.navigate(TestConfig.getBaseUrl());
         page.waitForLoadState();
         ExtentTestNGListener.info("Mở form đăng ký");
-        registerForm.openRegisterForm();
+        registerPage.openRegisterForm();
         ExtentTestNGListener.info("Thực hiện đăng ký khi thiếu dữ liệu");
 //        B4: Nhap du lieu vao cac field
         String name = TestConfig.getRegisterValidName();
@@ -65,13 +65,13 @@ public class RegisterTest extends BaseTest {
 
         String phone = TestConfig.getRegisterPhone();
         String birthday = TestConfig.getRegisterBirthday();
-        registerForm.register(name, email, "", "", birthday);
+        registerPage.register(name, email, "", "", birthday);
         page.waitForTimeout(3000);
         ExtentTestNGListener.info("Xác minh hiển thị message lỗi cho các field bắt buộc");
-        Map<String, String> expected = registerForm.getExpectedErrorMessage();
+        Map<String, String> expected = registerPage.getExpectedErrorMessage();
         List<String> emptyFields = List.of("password", "phone");
         emptyFields.forEach(field -> {
-            String actual = registerForm.getErrorMessage(field);
+            String actual = registerPage.getErrorMessage(field);
             Assert.assertEquals(actual, expected.get(field),
                     "Sai message tại field: " + field);
         });
@@ -95,18 +95,18 @@ public class RegisterTest extends BaseTest {
         page.navigate(TestConfig.getBaseUrl());
         page.waitForLoadState();
         ExtentTestNGListener.info("Mở form đăng ký");
-        registerForm.openRegisterForm();
+        registerPage.openRegisterForm();
         ExtentTestNGListener.info("Nhập email");
 //        B4: Nhap du lieu vao cac field
-//        registerForm.enterEmail(email);
-        registerForm.inputEmailAndBlurb(email);
+//        registerPage.enterEmail(email);
+        registerPage.inputEmailAndBlurb(email);
         page.waitForTimeout(3000);
         ExtentTestNGListener.info("Xác minh validate message lỗi format email hiển thị đúng");
-        boolean expectedIvalid = registerForm.checkEmailFormat(email);
-        boolean actualErrorDisplayed = registerForm.hasValidationError();
+        boolean expectedIvalid = registerPage.checkEmailFormat(email);
+        boolean actualErrorDisplayed = registerPage.hasValidationError();
         Assert.assertEquals(actualErrorDisplayed,expectedIvalid,
                 "FAIL: Hệ thống xử lý sai định dạng email [" + email + "]");
-        Assert.assertTrue(registerForm.getErrorMessage("email")
+        Assert.assertTrue(registerPage.getErrorMessage("email")
                         .contains("Vui lòng nhập đúng định dạng email"),
                 "FAIL: Validate message sai nội dung với email [" + email + "]");
     }

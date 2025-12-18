@@ -2,7 +2,6 @@ package pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import utils.TestConfig;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -11,7 +10,8 @@ import java.util.Locale;
 
 public class HomePage extends BasePage{
     private static final String LOCATION_LABEL = "//p[contains(text(),'Địa điểm')]/parent::div[contains(@class,'col-span-3')]";
-    private static final String DATE_PICKER = LOCATION_LABEL + "/following-sibling::div[contains(@class,'col-span-4')]";
+    private static final String DATE_LABEL = LOCATION_LABEL + "/following-sibling::div[contains(@class,'col-span-4')]";
+    private static final String DATE_PICKER = "//div[contains(@class,'rdrDateRangePickerWrapper')]";
     private static final String ADD_GUEST_FIELD = "//p[contains(text(),'Thêm khách')]/parent::div[contains(@class,'col-span-3')]";
     private static final String SEARCH_BUTTON = "//span[@aria-label='search']/parent::div";
     private static final String LOCATION_OPTION = "//h1[contains(text(),'Tìm kiếm địa điểm')]" +
@@ -37,19 +37,13 @@ public class HomePage extends BasePage{
         super(page);
     }
 
-    public void testAddGuest(){
-        page.navigate(TestConfig.getBaseUrl());
-        page.waitForLoadState();
-        page.waitForSelector(ADD_GUEST_FIELD);
-        page.click(ADD_GUEST_FIELD);
-        page.waitForTimeout(4000);
-
-    }
 
     public void chooseLocation(String locationOption){
+        page.waitForSelector(LOCATION_LABEL);
         page.click(LOCATION_LABEL);
         String location = String.format(LOCATION_OPTION, locationOption);
         page.waitForSelector(location);
+        scrollToElement(location);
         page.click(location);
     }
 
@@ -60,9 +54,8 @@ public class HomePage extends BasePage{
     }
 
     public void openDatePicker(){
-        page.waitForSelector(DATE_PICKER);
-        page.click(DATE_PICKER);
-        page.waitForLoadState();
+        page.waitForSelector(DATE_LABEL);
+        page.click(DATE_LABEL);
     }
 
     public void selectMonth(String month){

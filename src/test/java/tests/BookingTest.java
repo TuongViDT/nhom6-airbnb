@@ -50,6 +50,7 @@ public class BookingTest extends BaseTest {
 
 //        B3: chon phong
         ExtentTestNGListener.info("Chọn phòng");
+        page.waitForTimeout(2000);
         roomDetailPage.chooseRoom();
         page.waitForLoadState();
 
@@ -85,6 +86,7 @@ public class BookingTest extends BaseTest {
 
 //        B3: chon phong
         ExtentTestNGListener.info("Chọn một phòng từ danh sách kết quả");
+        page.waitForTimeout(2000);
         roomDetailPage.chooseRoom();
         page.waitForLoadState();
 
@@ -129,6 +131,7 @@ public class BookingTest extends BaseTest {
 
 //        B3: chon phong
         ExtentTestNGListener.info("Chọn một phòng trong danh sách kết quả");
+        page.waitForTimeout(2000);
         roomDetailPage.chooseRoom();
         page.waitForLoadState();
 

@@ -2,6 +2,7 @@ package pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.WaitForSelectorState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class RoomDetailPage extends BasePage{
 
     public void chooseRoom(){
         Locator roomCard = page.locator(ROOM_CARD).first();
-        roomCard.waitFor();
+        roomCard.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
         roomCard.click();
     }
 

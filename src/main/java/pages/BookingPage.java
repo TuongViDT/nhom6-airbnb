@@ -9,7 +9,6 @@ import java.time.temporal.ChronoUnit;
 
 public class BookingPage extends BasePage{
     private HomePage homePage;
-    private RoomDetailPage roomDetailPage;
     private static final String CHECK_IN_BUTTON = "//div[contains(@class,'font-bold') and contains(text(),'Nhận phòng')]/parent::div";
     private static final String DATE_LABEL = "//div[contains(@class,'rdrMonthName')]";
     private static final String DAY_BUTTON = "//span[text()='%s']/parent::span[not(contains(@class,'rdrDayPassive'))]/..";
@@ -32,7 +31,6 @@ public class BookingPage extends BasePage{
     public BookingPage(Page page){
         super(page);
         this.homePage = new HomePage(page);
-        this.roomDetailPage = new RoomDetailPage(page);
     }
 
 
@@ -73,9 +71,6 @@ public class BookingPage extends BasePage{
         page.click(CLOSE_BUTTON);
     }
 
-    public void bookingRoom(){
-
-    }
 
     public int getCurrentGuestNumber(){
         String guestCount = MINUS_BUTTON + "/following-sibling::div[text()]";

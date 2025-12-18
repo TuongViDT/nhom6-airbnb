@@ -47,6 +47,7 @@ public class HomeTest extends BaseTest{
 //          open date picker
         ExtentTestNGListener.info("Mở date picker để chọn ngày đặt phòng");
         homePage.openDatePicker();
+
         ExtentTestNGListener.info("Chọn ngày check-in");
         homePage.pickDateCheckIn("January 5, 2026");
         page.waitForTimeout(2000);
