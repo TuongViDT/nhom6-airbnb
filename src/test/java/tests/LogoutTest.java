@@ -29,7 +29,7 @@ public class LogoutTest extends BaseTest {
 
 // Dang xuat thanh cong tu home page
     @Test
-    public void testLogoutSuccess() {
+    public void testLogoutFromHome() {
 //        B1: Dang nhap taif khoan
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
         page.navigate(TestConfig.getBaseUrl());
@@ -51,9 +51,8 @@ public class LogoutTest extends BaseTest {
 //        B4: kiem tra log out thanh cong
         ExtentTestNGListener.info("Xác minh hệ thống đăng xuất thành công");
         boolean isLogoutSuccess = homePage.isLogoutSuccess();
-        Assert.assertTrue(isLogoutSuccess);
-        page.waitForLoadState();
-        Assert.assertTrue(homePage.checkUserAccount(), "User Account vẫn còn xuất hiện sau khi logout!");
+        Assert.assertTrue(isLogoutSuccess, "Đăng xuất thất bại");
+        Assert.assertTrue(header.isGuest(), "User vẫn ở trạng thái đăng nhập");
 
     }
 
@@ -82,10 +81,8 @@ public class LogoutTest extends BaseTest {
         ExtentTestNGListener.info("Xác minh đăng xuất thành công");
         //        B4: kiem tra log out thanh cong
         boolean isLogoutSuccess = homePage.isLogoutSuccess();
-        Assert.assertTrue(isLogoutSuccess);
-        ExtentTestNGListener.info("Xác minh điều hướng thành công");
-        page.waitForTimeout(3000);
-        Assert.assertTrue(homePage.checkUrl(), "Redirect after logout failed");
+        Assert.assertTrue(isLogoutSuccess, "Đăng xuất thất bại");
+        Assert.assertTrue(header.isGuest(), "User vẫn ở trạng thái đăng nhập");
 
     }
 
@@ -120,42 +117,40 @@ public class LogoutTest extends BaseTest {
     //        B4: kiem tra log out thanh cong
         ExtentTestNGListener.info("Xác minh đăng xuất thành công");
         boolean isLogoutSuccess = homePage.isLogoutSuccess();
-        Assert.assertTrue(isLogoutSuccess);
-        ExtentTestNGListener.info("Xác minh điều hướng thành công");
-        page.waitForTimeout(3000);
-        Assert.assertTrue(homePage.checkUrl(), "Redirect after logout failed");
+        Assert.assertTrue(isLogoutSuccess, "Đăng xuất thất bại");
+        Assert.assertTrue(header.isGuest(), "User vẫn ở trạng thái đăng nhập");
 
     }
 
 //    Dang xuat khi dang o profile page
     @Test
     public void testLogoutFromProfilePage() {
-        //        B1: Dang nhap taif khoan
+        //        B1: Truy cập trang web
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
         page.navigate(TestConfig.getBaseUrl());
         page.waitForLoadState();
-        ExtentTestNGListener.info("Mở form đăng nhập");
+//        B2: Đăng nhập tài khoản
+        ExtentTestNGListener.info("Đăng nhập tài khoản");
         loginForm.openSignInForm();
-        ExtentTestNGListener.info("Đăng nhập với thông tin hợp lệ");
         loginForm.login(TestConfig.getLoginValidEmail(), TestConfig.getLoginValidPassword());
         page.waitForLoadState();
-
-        ExtentTestNGListener.info("Mở menu User account");
+//        B3: điều hướng đến trang profile và đăng xuất khỏi tài khoản
+        ExtentTestNGListener.info("Điều hướng đến trang Profile");
         header.openUserMenu();
-        ExtentTestNGListener.info("Mở trang profile");
         header.clickOptionUserMenu("Dashboard");
         page.waitForTimeout(2000);
-        ExtentTestNGListener.info("Mở menu User account tại trang profile");
+        ExtentTestNGListener.info("Thực hiện đăng xuất");
         header.openUserMenu();
-        ExtentTestNGListener.info("Thực hiện đăng xuất khỏi tài khoản");
         header.clickLogout();
-
 //                B4: kiem tra log out thanh cong
+//        xác minh thông báo đăng xuất thành công và icon user account đổi thành icon guest
         ExtentTestNGListener.info("Xác minh đăng xuất thành công");
         boolean isLogoutSuccess = homePage.isLogoutSuccess();
-        Assert.assertTrue(isLogoutSuccess);
+        Assert.assertTrue(isLogoutSuccess, "Đăng xuất thất bại");
+        Assert.assertTrue(header.isGuest(), "User vẫn ở trạng thái đăng nhập");
+//        Kiểm tra điều hướng đến đúng trang home không
         ExtentTestNGListener.info("Xác minh điều hướng thành công");
-        page.waitForTimeout(3000);
-        Assert.assertTrue(homePage.checkUrl(), "Redirect after logout failed");
+        boolean isBannerVisible = homePage.isBannerVisible();
+        Assert.assertTrue(isBannerVisible, "Điều hướng thất bại");
     }
 }

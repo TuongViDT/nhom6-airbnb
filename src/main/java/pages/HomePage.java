@@ -11,7 +11,6 @@ import java.util.Locale;
 public class HomePage extends BasePage{
     private static final String LOCATION_LABEL = "//p[contains(text(),'Địa điểm')]/parent::div[contains(@class,'col-span-3')]";
     private static final String DATE_LABEL = LOCATION_LABEL + "/following-sibling::div[contains(@class,'col-span-4')]";
-    private static final String DATE_PICKER = "//div[contains(@class,'rdrDateRangePickerWrapper')]";
     private static final String ADD_GUEST_FIELD = "//p[contains(text(),'Thêm khách')]/parent::div[contains(@class,'col-span-3')]";
     private static final String SEARCH_BUTTON = "//span[@aria-label='search']/parent::div";
     private static final String LOCATION_OPTION = "//h1[contains(text(),'Tìm kiếm địa điểm')]" +
@@ -27,11 +26,10 @@ public class HomePage extends BasePage{
     private static final String DECREASE_BUTTON = "//div[text()='Khách']/following-sibling::div/div[.='–']";
     private static final String GUEST_NUMBER = "//div[text()='Khách']/following-sibling::div/div";
     private static final String LOCATION_CARD = "//a[@href='/rooms/ho-chi-minh' and .//h2[text()='Hồ Chí Minh']]";
-    private static final String USER_ACCOUNT = "//img[@class='h-10']/ancestor::button[contains(@class,'bg-main') and not(id='user-menu-button')]";
     private static final String LOGOUT_NOTICE = "//div[contains(@class,'ant-message-notice-content')]" +
             "//span[contains(text(),'Đăng xuất thành công')]";
-    private static final String CURRENT_PAGE = "//a[@aria-current='page' and text()='Home']";
     private static final String FILTER_PRICE_BUTTON = "//div[contains(@class,'container')]//button[.='Giá']";
+    private static final String BANNER = "//div[contains(@class,'banner-responsive')]";
 
     public HomePage(Page page){
         super(page);
@@ -178,15 +176,12 @@ public class HomePage extends BasePage{
         return page.locator(LOGOUT_NOTICE).isVisible();
     }
 
-    public boolean checkUserAccount(){
-        page.waitForSelector(USER_ACCOUNT);
-        return page.locator(USER_ACCOUNT).isVisible();
-    }
+//    public boolean checkUserAccount(){
+//        page.waitForSelector(USER_ACCOUNT);
+//        return page.locator(USER_ACCOUNT).isVisible();
+//    }
 
-    public boolean checkUrl(){
-        String currentUrl = page.url().toLowerCase();
-        return currentUrl.equals(baseUrl);
-    }
+
 
     public boolean isPriceButtonVisible(){
         return page.locator(FILTER_PRICE_BUTTON).isVisible();
@@ -199,6 +194,11 @@ public class HomePage extends BasePage{
     public void clickPriceButton(){
         page.waitForSelector(FILTER_PRICE_BUTTON);
         page.click(FILTER_PRICE_BUTTON);
+    }
+
+    public boolean isBannerVisible(){
+        page.waitForSelector(BANNER);
+        return page.locator(BANNER).isVisible();
     }
 
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class RoomDetailPage extends BasePage{
     private HomePage homePage;
-    private static final String ROOM_CARD = "//h1[contains(text(),'Chỗ ở tại khu vực')]/following-sibling::div//a";
+    private static final String ROOM_CARD = "//h1/following-sibling::div//a";
     private static final String PRICE = "//div[@class='ant-card-body']//div[contains(text(),' / đêm')]//span";
     private static final String ROOM_NAME = "//div[contains(@class,'container')]" +
             "//div[contains(@class,'grid')]/preceding-sibling::h2";
@@ -28,7 +28,8 @@ public class RoomDetailPage extends BasePage{
 
     public void chooseRoom(){
         Locator roomCard = page.locator(ROOM_CARD).first();
-        roomCard.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+        roomCard.scrollIntoViewIfNeeded();
+        roomCard.waitFor();
         roomCard.click();
     }
 

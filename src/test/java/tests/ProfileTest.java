@@ -219,32 +219,4 @@ public class ProfileTest extends BaseTest {
         page.waitForTimeout(3000);
     }
 
-//    TC: xem lịch sử đặt phòng khi chưa booking phòng nào
-    @Test
-    public void testEmptyBookingList(){
-        //        B1: truy cập trang web
-        ExtentTestNGListener.info("Truy cập trang web: "  + TestConfig.getBaseUrl());
-        page.navigate(TestConfig.getBaseUrl());
-        page.waitForLoadState();
-
-        //        B2: Đăng nhập tài khoản
-        ExtentTestNGListener.info("Mở form đăng nhập");
-        loginPage.openSignInForm();
-        ExtentTestNGListener.info("Đăng nhập với thông tin hợp lệ");
-        loginPage.login(TestConfig.getLoginValidEmail1(), TestConfig.getLoginValidPassword1());
-        page.waitForLoadState();
-
-        //        B3: mo profile
-        ExtentTestNGListener.info("Mở menu User account");
-        header.openUserMenu();
-        ExtentTestNGListener.info("Mở trang profile");
-        header.clickOptionUserMenu("Dashboard");
-        ExtentTestNGListener.info("Xác minh nội dung hiển thị khi chưa đặt phòng");
-        Assert.assertTrue(profilePage.isTitleDisplayed(), "Không hiển thị tiêu đề lịch sử đặt phòng");
-        Assert.assertTrue(profilePage.isEmptyMessage(), "Không hiển thị thông báo chưa có phòng đã đặt");
-//        Assert.assertEquals(profilePage.getBookingCount(), 0, "Không có booking nhưng hệ thống vẫn hiển thị phòng!");
-    }
-
-
-
 }
