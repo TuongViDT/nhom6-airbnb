@@ -25,7 +25,7 @@ public class ProfileTest extends BaseTest {
     }
 
 //    Xem thông tin profile
-    @Test
+    @Test(priority = 1)
     public void testViewProfile(){
 //        B1: truy cập trang web
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -51,7 +51,7 @@ public class ProfileTest extends BaseTest {
     }
 
 //    Update thông tin cá nhân
-    @Test
+    @Test(priority = 2)
     public void testUpdateProfile(){
         //        B1: truy cập trang web
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -87,7 +87,7 @@ public class ProfileTest extends BaseTest {
     }
 
 //    Update email đã tồn tại
-    @Test
+    @Test(priority = 3)
     public void testUpdateEmailInvalid(){
         //        B1: truy cập trang web
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -123,7 +123,7 @@ public class ProfileTest extends BaseTest {
     }
 
 
-    @Test
+    @Test(priority = 4)
     public void testUploadAvatarSuccess(){
         //        B1: truy cập trang web
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -159,7 +159,7 @@ public class ProfileTest extends BaseTest {
     }
 
 //    Test case: kiểm tra định dạng file khi upload
-    @Test
+    @Test(priority = 5)
     public void testInvalidFIleFormat(){
         //        B1: truy cập trang web
         ExtentTestNGListener.info("Truy cập trang web: "  + TestConfig.getBaseUrl());
@@ -193,7 +193,7 @@ public class ProfileTest extends BaseTest {
     }
 
 //    TC: xem lịch sử đặt phòng
-    @Test
+    @Test(priority = 6)
     public void testDisplayBookingList(){
         //        B1: truy cập trang web
         ExtentTestNGListener.info("Truy cập trang web: "  + TestConfig.getBaseUrl());

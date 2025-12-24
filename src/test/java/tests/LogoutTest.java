@@ -28,7 +28,7 @@ public class LogoutTest extends BaseTest {
     }
 
 // Dang xuat thanh cong tu home page
-    @Test
+    @Test(priority = 1)
     public void testLogoutFromHome() {
 //        B1: Dang nhap taif khoan
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -57,7 +57,7 @@ public class LogoutTest extends BaseTest {
     }
 
     // Đăng xuất khi đang ở room Page
-    @Test
+    @Test(priority = 2)
     public void testLogoutFromRoomPage() {
         //        B1: Dang nhap taif khoan
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -87,7 +87,7 @@ public class LogoutTest extends BaseTest {
     }
 
     // Đăng xuất khi đang ở detail Page
-    @Test
+    @Test(priority = 3)
     public void testLogoutFromDetailPage() {
     //        B1: Dang nhap taif khoan
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -123,7 +123,7 @@ public class LogoutTest extends BaseTest {
     }
 
 //    Dang xuat khi dang o profile page
-    @Test
+    @Test(priority = 4)
     public void testLogoutFromProfilePage() {
         //        B1: Truy cập trang web
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());

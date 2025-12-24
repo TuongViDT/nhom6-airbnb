@@ -19,7 +19,7 @@ public class HomeTest extends BaseTest{
 
 
 //    TC_07: Search theo địa điểm (ví dụ: "Hồ Chí Minh")
-    @Test
+    @Test(priority = 1)
     public void testSearchWithLocation(){
 //        B1: truy cap trang home
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -37,8 +37,8 @@ public class HomeTest extends BaseTest{
         Assert.assertTrue(isSearchValid, "URL does not contain expected location!");
     }
 
-//    -----------------------------------------------CẦN XEM LẠI---------------------------------------
-    @Test
+
+    @Test(priority = 2)
     public void testSearchRoomsWithValidDate(){
 //        B1: truy cap trang web
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -49,10 +49,10 @@ public class HomeTest extends BaseTest{
         homePage.openDatePicker();
 
         ExtentTestNGListener.info("Chọn ngày check-in");
-        homePage.pickDateCheckIn("January 5, 2026");
+        homePage.pickDateCheckIn("April 5, 2026");
         page.waitForTimeout(2000);
         ExtentTestNGListener.info("Chọn ngày check-out");
-        homePage.pickDateCheckIn("January 10, 2026");
+        homePage.pickDateCheckIn("April 10, 2026");
         page.waitForTimeout(2000);
         ExtentTestNGListener.info("Thực hiện thao tác tìm kiếm");
         homePage.clickSearchButton();
@@ -63,7 +63,7 @@ public class HomeTest extends BaseTest{
 
     }
 
-    @Test
+    @Test(priority = 3)
     public void testFilterOfNumberGuests(){
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
         page.navigate(TestConfig.getBaseUrl());

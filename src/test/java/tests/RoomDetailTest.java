@@ -26,7 +26,7 @@ public class RoomDetailTest extends BaseTest{
 
 
 //    TC_11: Xem chi tiết phòng
-    @Test
+    @Test(priority = 1)
     public void testViewRoomDetail(){
 //        B1: truy cap trang web
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -48,7 +48,7 @@ public class RoomDetailTest extends BaseTest{
     }
 
 //    hiển thị đầy đủ thông tin phòng
-    @Test
+    @Test(priority = 2)
     public void testRoomInfoDisplay(){
         ExtentTestNGListener.info("TRuy cập trang web: " + TestConfig.getBaseUrl());
         page.navigate(TestConfig.getBaseUrl());

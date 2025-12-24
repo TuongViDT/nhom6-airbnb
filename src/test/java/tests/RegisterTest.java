@@ -24,7 +24,7 @@ public class RegisterTest extends BaseTest {
 
 
 //    TC_01: Đăng ký thất bại - Email đã tồn tại
-    @Test
+    @Test(priority = 1)
     public void testRegistrationFailsWithExistingEmail(){
 //        B1: truy cap website
 //        B2: mo menu user
@@ -51,7 +51,7 @@ public class RegisterTest extends BaseTest {
 
 
 //    Validate các message lỗi hiển thị đúng
-    @Test
+    @Test(priority = 2)
     public void testValidationError(){
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
         page.navigate(TestConfig.getBaseUrl());

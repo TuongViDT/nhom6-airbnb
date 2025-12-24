@@ -29,7 +29,7 @@ public class BookingTest extends BaseTest {
 
 
 
-    @Test
+    @Test(priority = 1)
     public void testBookingSuccess(){
 //        B1: truy cap trang web
         ExtentTestNGListener.info("Truy cap thanh cong trang web");
@@ -57,8 +57,8 @@ public class BookingTest extends BaseTest {
 //        B4: thay doi ngay
         ExtentTestNGListener.info("Chon ngay check in check out");
         bookingPage.openPickDate();
-        bookingPage.chooseDateBooking("December 29, 2025");
-        bookingPage.chooseDateBooking("January 5, 2026");
+        bookingPage.chooseDateBooking("March 29, 2025");
+        bookingPage.chooseDateBooking("April 5, 2026");
         bookingPage.clickCloseButton();
         ExtentTestNGListener.info("Chon so luong khach thue");
         bookingPage.setGuests(2);
@@ -72,7 +72,7 @@ public class BookingTest extends BaseTest {
     }
 
 //    TC: booking failed - chua dang nhap
-    @Test
+    @Test(priority = 2)
     public void testBookingNotLogin(){
 //        B1: truy cap trang web
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -93,8 +93,8 @@ public class BookingTest extends BaseTest {
 //        B4: thay doi ngay
         ExtentTestNGListener.info("Chọn ngày check-in và ngày check-out hợp lệ");
         bookingPage.openPickDate();
-        bookingPage.chooseDateBooking("December 29, 2025");
-        bookingPage.chooseDateBooking("January 5, 2026");
+        bookingPage.chooseDateBooking("March 29, 2025");
+        bookingPage.chooseDateBooking("April 5, 2026");
         bookingPage.clickCloseButton();
 
         ExtentTestNGListener.info("Thiết lập số lượng khách thuê phòng");
@@ -109,7 +109,7 @@ public class BookingTest extends BaseTest {
     }
 
 //    TC: Đặt phòng thất bại - Ngày không hợp lệ
-    @Test
+    @Test(priority = 3)
     public void testBookingInvalidDate(){
 //        B1: truy cap trang web
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -138,8 +138,8 @@ public class BookingTest extends BaseTest {
 //        B4: chọn ngày check in check out cùng 1 ngày
         ExtentTestNGListener.info("Chọn ngày check-in và check-out trùng nhau");
         bookingPage.openPickDate();
-        bookingPage.chooseDateBooking("January 5, 2026");
-        bookingPage.chooseDateBooking("January 5, 2026");
+        bookingPage.chooseDateBooking("February 5, 2026");
+        bookingPage.chooseDateBooking("February 5, 2026");
         bookingPage.clickCloseButton();
         ExtentTestNGListener.info("Thực hiện thao tác đặt phòng");
         bookingPage.clickBookingButton();
@@ -150,7 +150,7 @@ public class BookingTest extends BaseTest {
         page.waitForTimeout(3000);}
 
 //    TC: so sánh giá mỗi đêm trên card phòng và trang chi tiết phòng
-    @Test
+    @Test(priority = 4)
     public void testComparePriceBetweenCardAndDetailPage(){
         //        B1: truy cap trang web
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -173,7 +173,7 @@ public class BookingTest extends BaseTest {
     }
 
 
-    @Test
+    @Test(priority = 5)
     public void testTotalPriceCalculatedCorrectly(){
 //        B1: truy cap trang web
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
@@ -193,8 +193,8 @@ public class BookingTest extends BaseTest {
 //        B4: thay doi ngay
         ExtentTestNGListener.info("Chọn ngày check-in check-out");
         bookingPage.openPickDate();
-        bookingPage.chooseDateBooking("December 29, 2025");
-        bookingPage.chooseDateBooking("January 5, 2026");
+        bookingPage.chooseDateBooking("March 29, 2025");
+        bookingPage.chooseDateBooking("April 5, 2026");
         bookingPage.clickCloseButton();
         ExtentTestNGListener.info("Xác minh giá phòng được hiển thị và tính toán đúng");
         int expectedTotal = bookingPage.priceTotal();
