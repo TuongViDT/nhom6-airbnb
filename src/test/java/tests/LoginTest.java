@@ -19,7 +19,7 @@ public class LoginTest extends BaseTest{
     }
 
     //    TC_03: Đăng nhập thành công
-    @Test
+    @Test(priority = 1)
     public void testLoginWithValidUser(){
         ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
         page.navigate(TestConfig.getBaseUrl());
@@ -38,7 +38,7 @@ public class LoginTest extends BaseTest{
     }
 
     //    TC_04: Đăng nhập thất bại - Sai email/password
-    @Test
+    @Test(priority = 2)
     public void testLoginWithInvalidUser(){
         ExtentTestNGListener.info("Truy cập trang web:  " + TestConfig.getBaseUrl());
         page.navigate(TestConfig.getBaseUrl());

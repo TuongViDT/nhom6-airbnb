@@ -49,10 +49,10 @@ public class HomeTest extends BaseTest{
         homePage.openDatePicker();
 
         ExtentTestNGListener.info("Chọn ngày check-in");
-        homePage.pickDateCheckIn("April 5, 2026");
+        homePage.pickDate("February 5, 2026");
         page.waitForTimeout(2000);
         ExtentTestNGListener.info("Chọn ngày check-out");
-        homePage.pickDateCheckIn("April 10, 2026");
+        homePage.pickDate("February 10, 2026");
         page.waitForTimeout(2000);
         ExtentTestNGListener.info("Thực hiện thao tác tìm kiếm");
         homePage.clickSearchButton();

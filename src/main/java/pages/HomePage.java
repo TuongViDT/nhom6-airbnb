@@ -57,10 +57,13 @@ public class HomePage extends BasePage{
     }
 
     public void selectMonth(String month){
-        Locator monthDropdown = page.locator(MONTH_DROPDOWN);
-        monthDropdown.waitFor();
-        monthDropdown.selectOption(month);
+        Locator monthSelect = page.locator(MONTH_DROPDOWN);
+        monthSelect.waitFor();
+        monthSelect.selectOption(month);
+
     }
+
+
 
     public void selectYear(String year){
         Locator yearDropdown = page.locator(YEAR_DROPDOWN);
@@ -68,7 +71,7 @@ public class HomePage extends BasePage{
         yearDropdown.selectOption(year);
     }
 
-    public void navigateToMonthYear(String targetMonth, String targetYear, String targetDay){
+    public void pickDate(String dateText){
 //        tìm locator title calender
 
 //        tách tháng năm hiển thị trên calender ==> {tháng, năm}
@@ -77,6 +80,18 @@ public class HomePage extends BasePage{
 //        nếu giống thì click chọn ngày trong calender đó
 //        Nếu cả 2 calendar không có thì click dropdown năm tháng
 //        chọn tháng năm giống input, rồi chọn ngày
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+        LocalDate date = LocalDate.parse(dateText, formatter);
+        System.out.println(date);
+//        Ket qua: Nov 2, 2025
+//        Lay thang, ngay, nam tu date
+        String targetMonth = date.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+        System.out.println(targetMonth);
+
+        String targetDay = String.valueOf(date.getDayOfMonth());
+        String targetYear = String.valueOf(date.getYear());
+
         int count = page.locator(DATE_DISPLAYED).count();
         boolean foundInDisplayedCalendar = false;
 
@@ -96,24 +111,18 @@ public class HomePage extends BasePage{
             }
         }
         if(!foundInDisplayedCalendar){
-            selectMonth(targetMonth);
+            String targetMonthFull =
+                    date.format(DateTimeFormatter.ofPattern("MMMM", Locale.ENGLISH));
+
             selectYear(targetYear);
+            selectMonth(targetMonthFull);
             page.waitForLoadState();
             Locator dayButton = page.locator(String.format(DAY_BUTTON, 1, targetDay));
             dayButton.click();
         }
     }
 
-    public void pickDateCheckIn(String dateText){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
-        LocalDate date = LocalDate.parse(dateText, formatter);
-//        Ket qua: Nov 2, 2025
-//        Lay thang, ngay, nam tu date
-        String month = date.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
-        String day = String.valueOf(date.getDayOfMonth());
-        String year = String.valueOf(date.getYear());
-        navigateToMonthYear(month, year, day);
-    }
+
     /*
     lấy ngày UI hiển thị
     Tách ngày tháng năm input
