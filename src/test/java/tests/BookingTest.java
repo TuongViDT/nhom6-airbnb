@@ -57,7 +57,7 @@ public class BookingTest extends BaseTest {
 //        B4: thay doi ngay
         ExtentTestNGListener.info("Chon ngay check in check out");
         bookingPage.openPickDate();
-        bookingPage.chooseDateBooking("March 29, 2025");
+        bookingPage.chooseDateBooking("March 29, 2026");
         bookingPage.chooseDateBooking("April 5, 2026");
         bookingPage.clickCloseButton();
         ExtentTestNGListener.info("Chon so luong khach thue");
@@ -93,7 +93,7 @@ public class BookingTest extends BaseTest {
 //        B4: thay doi ngay
         ExtentTestNGListener.info("Chọn ngày check-in và ngày check-out hợp lệ");
         bookingPage.openPickDate();
-        bookingPage.chooseDateBooking("March 29, 2025");
+        bookingPage.chooseDateBooking("March 29, 2026");
         bookingPage.chooseDateBooking("April 5, 2026");
         bookingPage.clickCloseButton();
 
@@ -193,7 +193,7 @@ public class BookingTest extends BaseTest {
 //        B4: thay doi ngay
         ExtentTestNGListener.info("Chọn ngày check-in check-out");
         bookingPage.openPickDate();
-        bookingPage.chooseDateBooking("March 29, 2025");
+        bookingPage.chooseDateBooking("March 29, 2026");
         bookingPage.chooseDateBooking("April 5, 2026");
         bookingPage.clickCloseButton();
         ExtentTestNGListener.info("Xác minh giá phòng được hiển thị và tính toán đúng");

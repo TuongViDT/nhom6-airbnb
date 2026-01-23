@@ -53,7 +53,6 @@ public class LogoutTest extends BaseTest {
         boolean isLogoutSuccess = homePage.isLogoutSuccess();
         Assert.assertTrue(isLogoutSuccess, "Đăng xuất thất bại");
         Assert.assertTrue(header.isGuest(), "User vẫn ở trạng thái đăng nhập");
-
     }
 
     // Đăng xuất khi đang ở room Page

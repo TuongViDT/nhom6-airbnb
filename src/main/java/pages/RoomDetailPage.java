@@ -22,6 +22,7 @@ public class RoomDetailPage extends BasePage{
     private static final String REVIEW_ALERT = "//div[@role='alert']//div[contains(text(),'Cần đăng nhập để bình luận')]";
     private static final String USER_ACCOUNT = "//button[@id='user-menu-button']";
 
+
     public RoomDetailPage(Page page){
         super(page);
     }

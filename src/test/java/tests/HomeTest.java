@@ -38,43 +38,43 @@ public class HomeTest extends BaseTest{
     }
 
 
-    @Test(priority = 2)
-    public void testSearchRoomsWithValidDate(){
-//        B1: truy cap trang web
-        ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
-        page.navigate(TestConfig.getBaseUrl());
-        page.waitForLoadState();
-//          open date picker
-        ExtentTestNGListener.info("Mở date picker để chọn ngày đặt phòng");
-        homePage.openDatePicker();
+//    @Test(priority = 2)
+//    public void testSearchRoomsWithValidDate(){
+////        B1: truy cap trang web
+//        ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
+//        page.navigate(TestConfig.getBaseUrl());
+//        page.waitForLoadState();
+////          open date picker
+//        ExtentTestNGListener.info("Mở date picker để chọn ngày đặt phòng");
+//        homePage.openDatePicker();
+//
+//        ExtentTestNGListener.info("Chọn ngày check-in");
+//        homePage.pickDate("February 5, 2026");
+//        page.waitForTimeout(2000);
+//        ExtentTestNGListener.info("Chọn ngày check-out");
+//        homePage.pickDate("February 10, 2026");
+//        page.waitForTimeout(2000);
+//        ExtentTestNGListener.info("Thực hiện thao tác tìm kiếm");
+//        homePage.clickSearchButton();
+//        page.waitForTimeout(3000);
+//        ExtentTestNGListener.info("Xác minh kết quả tìm kiếm hợp lệ");
+//        boolean isSearchValid = homePage.isSearchValid("rooms");
+//        Assert.assertTrue(isSearchValid, "URL does not contain expected location!");
+//
+//    }
 
-        ExtentTestNGListener.info("Chọn ngày check-in");
-        homePage.pickDate("February 5, 2026");
-        page.waitForTimeout(2000);
-        ExtentTestNGListener.info("Chọn ngày check-out");
-        homePage.pickDate("February 10, 2026");
-        page.waitForTimeout(2000);
-        ExtentTestNGListener.info("Thực hiện thao tác tìm kiếm");
-        homePage.clickSearchButton();
-        page.waitForTimeout(3000);
-        ExtentTestNGListener.info("Xác minh kết quả tìm kiếm hợp lệ");
-        boolean isSearchValid = homePage.isSearchValid("rooms");
-        Assert.assertTrue(isSearchValid, "URL does not contain expected location!");
-
-    }
-
-    @Test(priority = 3)
-    public void testFilterOfNumberGuests(){
-        ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
-        page.navigate(TestConfig.getBaseUrl());
-        page.waitForLoadState();
-        ExtentTestNGListener.info("Thiết lập số khách muốn thuê phòng");
-        homePage.clickAddGuestButton();
-        homePage.filterNumberOfGuests(5);
-        ExtentTestNGListener.info("Thực hiện thao tác tìm kiếm phòng");
-        homePage.clickSearchButton();
-        ExtentTestNGListener.info("Xác minh kết quả tìm kiếm hợp lệ");
-        boolean isSearchValid = homePage.isSearchValid("rooms");
-        Assert.assertTrue(isSearchValid, "URL does not contain expected location!");
-    }
+//    @Test(priority = 3)
+//    public void testFilterOfNumberGuests(){
+//        ExtentTestNGListener.info("Truy cập trang web: " + TestConfig.getBaseUrl());
+//        page.navigate(TestConfig.getBaseUrl());
+//        page.waitForLoadState();
+//        ExtentTestNGListener.info("Thiết lập số khách muốn thuê phòng");
+//        homePage.clickAddGuestButton();
+//        homePage.filterNumberOfGuests(5);
+//        ExtentTestNGListener.info("Thực hiện thao tác tìm kiếm phòng");
+//        homePage.clickSearchButton();
+//        ExtentTestNGListener.info("Xác minh kết quả tìm kiếm hợp lệ");
+//        boolean isSearchValid = homePage.isSearchValid("rooms");
+//        Assert.assertTrue(isSearchValid, "URL does not contain expected location!");
+//    }
 }

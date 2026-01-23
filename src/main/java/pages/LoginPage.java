@@ -67,13 +67,6 @@ public class LoginPage extends BasePage{
         return page.locator(ERROR_MESSAGE_NOTICE).isVisible();
     }
 
-
-
-
-
-
-
-
 }
 
 

@@ -69,6 +69,7 @@ public class RegisterPage extends BasePage{
         System.out.println("Da fill phone number vao input");
     }
     public void chooseMonthBirthday(String targetMonth){
+
         Locator month = page.locator(String.format(MONTH_BUTTON, targetMonth));
         month.waitFor();
         month.click();
@@ -117,6 +118,8 @@ public class RegisterPage extends BasePage{
         page.waitForSelector(DATE_PICKER);
         String currentYear = page.locator(PICKER_YEAR_BUTTON).innerText().trim();
         String currentMonth = page.locator(PICKER_MONTH_BUTTON).innerText().trim().substring(0,3);
+        System.out.println("currentMonth" + currentMonth);
+        System.out.println("targetMonth" + targetMonthShort);
 
 
 //        so sánh năm, nếu khác năm thì chọn năm, ngược lại thì tiếp tục
@@ -127,6 +130,7 @@ public class RegisterPage extends BasePage{
 //        nếu không hiển thị lịch đầy đủ, hiển thị table có cell tháng thì chọn tháng
         if(isCalendarVisible()){
             if(!currentMonth.equals(targetMonthShort)){
+                page.click(PICKER_MONTH_BUTTON);
                 chooseMonthBirthday(targetMonthShort);
             }
         }else {

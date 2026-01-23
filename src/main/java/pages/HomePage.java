@@ -63,8 +63,6 @@ public class HomePage extends BasePage{
 
     }
 
-
-
     public void selectYear(String year){
         Locator yearDropdown = page.locator(YEAR_DROPDOWN);
         yearDropdown.waitFor();
@@ -172,11 +170,10 @@ public class HomePage extends BasePage{
         page.waitForLoadState();
     }
 
-
-
     public boolean isSearchValid(String expectedLocation){
         String currentUrl = page.url().toLowerCase();
         return currentUrl.contains(expectedLocation.toLowerCase());
+
     }
 
 
