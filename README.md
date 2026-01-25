@@ -25,10 +25,6 @@ This project focuses on testing a Hotel Booking Website, including both manual t
 - Test execution on Chrome browser
 - Test report generation
 
-## 6. How to Run Tests
-npm install  
-npx playwright test
-
-## 7. Test Environment
+## 6. Test Environment
 - URL: https://demo5.cybersoft.edu.vn/
 - Browser: Chrome
